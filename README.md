@@ -21,6 +21,7 @@ The outputs are designed to be directly consumable by downstream tools such as
 ---
 
 ## Repository Structure
+```text
 p2p-analytics/
 │
 ├─ phase2_package/
@@ -56,7 +57,7 @@ p2p-analytics/
 │
 ├─ README.md
 └─ .gitignore
-
+``` 
 ---
 
 ## Installation
@@ -138,7 +139,7 @@ spread_ars.to_parquet("exports/spread_ARS.parquet", index=False)
 ## Documentation
 The full documentation is available at:
 
-👉 `https://hec-dacm-p2p-2025.github.io/p2p_analytics/`
+👉 `https://hec-dacm-p2p-2025.github.io/p2p-analytics/`
 
 ## Testing
 Run the test suite with `pytest`:
