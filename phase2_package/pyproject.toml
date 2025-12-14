@@ -20,9 +20,9 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/hec-dacm-p2p-2025/final-project"
-Documentation = "https://hec-dacm-p2p-2025.github.io/final-project/"
-Source = "https://github.com/hec-dacm-p2p-2025/final-project/tree/main/phase2_package"
+Homepage = "https://github.com/hec-dacm-p2p-2025/p2p_analytics"
+Documentation = "https://hec-dacm-p2p-2025.github.io/p2p_analytics/"
+Source = "https://github.com/hec-dacm-p2p-2025/p2p_analytics/tree/main/phase2_package"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
