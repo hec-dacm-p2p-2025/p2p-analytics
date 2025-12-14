@@ -1,0 +1,27 @@
+site_name: P2P-Currency-Analysis
+repo_url: https://github.com/hec-dacm-p2p-2025/final-project
+repo_name: final-project
+
+theme:
+  name: material
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: numpy
+            show_source: true
+
+nav:
+  - Overview: index.md
+  - Installation: installation.md
+  - Get started: get_started.md
+  - Examples: examples.md
+  - API reference:
+      - IO (Loaders): api/io.md
+      - Spreads & Intraday: api/spreads.md
+      - Premium: api/premium.md
+      - Microstructure: api/microstructure.md
+      - Summary & Volatility: api/summary.md

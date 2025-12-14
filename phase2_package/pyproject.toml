@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "p2p-analytics"
+version = "0.1.0"
+description = "Analytics toolkit for Binance P2P and BCB exchange-rate data."
+authors = [
+  { name = "Axel Lo Schiavo", email = "axel.loschiavo@unil.ch" }
+]
+readme = "README.md"
+requires-python = ">=3.10"
+
+dependencies = [
+  "pandas >= 1.5",
+  "numpy >= 1.23",
+  "pyarrow",          # Required for parquet I/O
+  "matplotlib",       # Optional but useful for debugging / PowerBI examples
+]
+
+[project.urls]
+Homepage = "https://github.com/hec-dacm-p2p-2025/final-project"
+Documentation = "https://hec-dacm-p2p-2025.github.io/final-project/"
+Source = "https://github.com/hec-dacm-p2p-2025/final-project/tree/main/phase2_package"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["p2p_analytics*"]
+
+[tool.setuptools.package-data]
+# In case you later include templates, default configs, etc.
+p2p_analytics = ["*.yaml", "*.json"]
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "ruff",
+  "mypy",
+  "mkdocs",
+  "mkdocs-material",
+  "mkdocstrings[python]"
+]
+
+[tool.mkdocs]
+site-dir = "site"
