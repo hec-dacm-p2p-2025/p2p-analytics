@@ -16,7 +16,7 @@ and provides reusable, well-documented functions to analyze:
 - Summary statistics and volatility metrics  
 
 The outputs are designed to be directly consumable by downstream tools such as
-**Power BI dashboards** (Phase 3).
+**Streamlit web app** (Phase 3).
 
 ---
 
