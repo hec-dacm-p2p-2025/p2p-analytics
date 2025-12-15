@@ -2,6 +2,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Optional, Union
 import datetime as dt
+import os
 
 import pandas as pd
 
@@ -14,22 +15,23 @@ def get_processed_root(root: Optional[PathLike] = None) -> Path:
 
     If `root` is None, we assume the following project layout:
 
-        final-project/
-        ├─ phase1_data_pipeline/
-        │   └─ data/processed/...
-        └─ phase2_package/
-            └─ src/p2p_analytics/io.py  (this file)
+        GitHub/
+        ├─ final-project/
+        │   └─ phase1_data_pipeline/...
+        └─ p2p-analytics/
+            └─ phase2_package/...
+                └─ src/p2p_analytics/...
 
-    so the processed root is:
-        final-project/phase1_data_pipeline/data/processed
+    If `root` is provided, it is used directly.
+    Otherwise, a ValueError is raised to force the user to be explicit.
     """
     if root is not None:
-        return Path(root)
+        return Path(root).expanduser().resolve()
 
-    # This file: final-project/phase2_package/src/p2p_analytics/io.py
-    here = Path(__file__).resolve()
-    final_project_root = here.parents[3]  # go up: p2p_analytics -> src -> phase2_package -> final-project
-    return final_project_root / "phase1_data_pipeline" / "data" / "processed"
+    raise ValueError(
+        "No Phase 1 processed-data path provided. "
+        "Pass `root=` explicitly when calling loader functions."
+    )
 
 # ---------------------------------------------------------------------
 # BINANCE LOADERS
