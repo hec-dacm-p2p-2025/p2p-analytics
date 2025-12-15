@@ -683,7 +683,7 @@
 <pre><code class="language-python">import matplotlib.pyplot as plt
 from p2p_analytics import p2p_spread
 
-spread = p2p_spread(&quot;ARS&quot;, by=&quot;day&quot;)
+spread = p2p_spread(&quot;ARS&quot;, by=&quot;day&quot;, root=PHASE1_ROOT)
 
 plt.plot(spread[&quot;date&quot;], spread[&quot;spread_abs&quot;])
 plt.title(&quot;ARS Daily BUY–SELL Spread&quot;)
@@ -695,14 +695,14 @@ plt.show()
 <h2 id="example-2-multi-currency-comparison">Example 2 - Multi-currency comparison</h2>
 <pre><code class="language-python">from p2p_analytics import fiat_comparison
 
-fx = fiat_comparison([&quot;ARS&quot;, &quot;BOB&quot;, &quot;MXN&quot;])
+fx = fiat_comparison([&quot;ARS&quot;, &quot;BOB&quot;, &quot;MXN&quot;], root=PHASE1_ROOT)
 print(fx.head())
 </code></pre>
 <hr />
 <h2 id="example-3-exporting-to-power-bi">Example 3 - Exporting to Power BI</h2>
 <pre><code class="language-python">from p2p_analytics import p2p_summary
 
-summary = p2p_summary(&quot;ARS&quot;)
+summary = p2p_summary(&quot;ARS&quot;, root=PHASE1_ROOT)
 
 summary.to_parquet(&quot;exports/summary_ARS.parquet&quot;, index=False)
 summary.to_csv(&quot;exports/summary_ARS.csv&quot;, index=False)
