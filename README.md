@@ -133,7 +133,7 @@ spread_ars = p2p_spread("ARS", by="day")
 premium_ars = official_premium("ARS")
 
 # Export for Power BI
-spread_ars.to_parquet("exports/spread_ARS.parquet", index=False)
+spread_ars.to_csv("exports/spread_ARS.csv", index=False)
 ```
 
 ## Documentation
