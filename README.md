@@ -132,7 +132,7 @@ from p2p_analytics import p2p_spread, official_premium
 spread_ars = p2p_spread("ARS", by="day")
 premium_ars = official_premium("ARS")
 
-# Export for Power BI
+# Export for Power BI/Streamlit
 spread_ars.to_csv("exports/spread_ARS.csv", index=False)
 ```
 
