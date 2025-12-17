@@ -52,7 +52,7 @@ def official_premium(
         how="inner",
     )
 
-    merged["premium_abs"] = merged["p2p_avg_price"] - merged["official_exchange_rate"]
+    merged["premium_abs"] = (merged["p2p_avg_price"] - merged["official_exchange_rate"]).abs()
     merged["premium_pct"] = (
         merged["p2p_avg_price"] / merged["official_exchange_rate"] - 1.0
     ) * 100
