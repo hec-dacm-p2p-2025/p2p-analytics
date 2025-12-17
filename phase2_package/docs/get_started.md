@@ -35,7 +35,7 @@ spread_ars = p2p_spread("ARS", by="day", root=PHASE1_ROOT)
 ```python
 from p2p_analytics import intraday_profile
 
-profile_ars = intraday_profile("ARS", root=PHASE1_ROOT)
+profile_ars = intraday_profile("ARS", start= '2025-12-09', end='2025-12-10' root=PHASE1_ROOT)
 ```
 
 ## Compare multiple currencies
