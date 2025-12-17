@@ -900,7 +900,7 @@
         <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span>
     <span class="p">)</span>
 
-    <span class="n">merged</span><span class="p">[</span><span class="s2">&quot;premium_abs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">merged</span><span class="p">[</span><span class="s2">&quot;p2p_avg_price&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">merged</span><span class="p">[</span><span class="s2">&quot;official_exchange_rate&quot;</span><span class="p">]</span>
+    <span class="n">merged</span><span class="p">[</span><span class="s2">&quot;premium_abs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">merged</span><span class="p">[</span><span class="s2">&quot;p2p_avg_price&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">merged</span><span class="p">[</span><span class="s2">&quot;official_exchange_rate&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span>
     <span class="n">merged</span><span class="p">[</span><span class="s2">&quot;premium_pct&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
         <span class="n">merged</span><span class="p">[</span><span class="s2">&quot;p2p_avg_price&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">merged</span><span class="p">[</span><span class="s2">&quot;official_exchange_rate&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="mf">1.0</span>
     <span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
