@@ -87,6 +87,8 @@ def p2p_spread(
 
 def intraday_profile(
     currency: str,
+    start: str | pd.Timestamp | None = None,
+    end: str | pd.Timestamp | None = None,
     root: str | None = None,
 ) -> pd.DataFrame:
     """
@@ -96,6 +98,10 @@ def intraday_profile(
     ----------
     currency : str
         Fiat currency code.
+    start : str or pandas.Timestamp, optional
+        Start date (inclusive).
+    end : str or pandas.Timestamp, optional
+        End date (inclusive).
     root : path-like, optional
         Root of processed data.
 
@@ -110,11 +116,18 @@ def intraday_profile(
     """
     df = load_binance_currency(currency, root=root)
     df = _ensure_datetime(df, "scrape_datetime")
-    df_cur = df.copy()
-    df_cur["hour"] = df_cur["scrape_datetime"].dt.hour
+
+    df["date"] = pd.to_datetime(df["date"]).dt.date
+    df["hour"] = df["scrape_datetime"].dt.hour
+
+    if start is not None:
+        df = df[df["date"] >= pd.to_datetime(start).date()]
+
+    if end is not None:
+        df = df[df["date"] <= pd.to_datetime(end).date()]
 
     grouped = (
-        df_cur
+        df
         .groupby(["hour", "side"], as_index=False)["price"]
         .mean()
         .pivot_table(
