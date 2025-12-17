@@ -809,7 +809,7 @@ spread_ars = p2p_spread(&quot;ARS&quot;, by=&quot;day&quot;, root=PHASE1_ROOT)
 <h2 id="intraday-profile">Intraday profile</h2>
 <pre><code class="language-python">from p2p_analytics import intraday_profile
 
-profile_ars = intraday_profile(&quot;ARS&quot;, root=PHASE1_ROOT)
+profile_ars = intraday_profile(&quot;ARS&quot;, start= '2025-12-09', end='2025-12-10' root=PHASE1_ROOT)
 </code></pre>
 <h2 id="compare-multiple-currencies">Compare multiple currencies</h2>
 <pre><code class="language-python">from p2p_analytics import fiat_comparison
